@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getJobBySlug } from "../../Data/careers.data";
+import { getJobBySlug, isJobEffectivelyOpen } from "../../Data/careers.data";
 
 const styles: Record<string, CSSProperties> = {
   notFound: {
@@ -217,8 +217,8 @@ const styles: Record<string, CSSProperties> = {
   closed: {
     textAlign: "center",
     fontSize: "0.85rem",
-    color: "#8a8f8f",
-    background: "var(--secondary-background-color)",
+    background: "var(--dark-background-color)",
+    color: "#fff",
     padding: "0.9rem",
     borderRadius: 8,
     margin: 0,
@@ -415,7 +415,7 @@ const JobDescriptionPage = () => {
               </div>
             </dl>
 
-            {job.isOpen ? (
+            {isJobEffectivelyOpen(job) ? (
               <a
                 href={job.googleFormUrl}
                 target="_blank"
@@ -431,7 +431,8 @@ const JobDescriptionPage = () => {
               </a>
             ) : (
               <p style={styles.closed}>
-                This position is no longer accepting applications.
+                This position is no longer accepting applications. Applications
+                closed on 7th August 2026.
               </p>
             )}
           </div>

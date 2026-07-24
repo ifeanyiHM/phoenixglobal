@@ -1,5 +1,5 @@
 import { useState, type CSSProperties } from "react";
-import { jobVacancies } from "../../Data/careers.data";
+import { isRecruitmentOpen, jobVacancies } from "../../Data/careers.data";
 import JobCard from "../../Components/jobCard/JobCard";
 
 const coreValues = [
@@ -456,11 +456,12 @@ const CareersPage = () => {
       </section>
 
       {/* CURRENT VACANCIES */}
+      {/* CURRENT VACANCIES */}
       <section style={styles.vacancies} id="current-vacancies">
         <span style={styles.eyebrow}>Current Vacancies</span>
         <h2 style={styles.sectionHeading}>Open positions</h2>
 
-        {jobVacancies.length > 0 ? (
+        {isRecruitmentOpen() && jobVacancies.length > 0 ? (
           <div style={styles.vacanciesGrid}>
             {jobVacancies.map((job) => (
               <JobCard job={job} key={job.slug} />
@@ -469,8 +470,9 @@ const CareersPage = () => {
         ) : (
           <div style={styles.vacanciesEmpty}>
             <p style={styles.bodyText}>
-              There are currently no open positions. Please check back later for
-              future opportunities.
+              {isRecruitmentOpen()
+                ? "There are currently no open positions. Please check back later for future opportunities."
+                : "We are no longer hiring at this time. Applications closed on 7th August 2026. Please check back later for future opportunities."}
             </p>
           </div>
         )}

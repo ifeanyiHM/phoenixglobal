@@ -47,13 +47,21 @@ export interface JobVacancy {
   isOpen: boolean;
 }
 
+export const recruitmentDeadline = new Date("2026-08-07T23:59:59");
+
+export const isRecruitmentOpen = (): boolean =>
+  new Date() <= recruitmentDeadline;
+
+export const isJobEffectivelyOpen = (job: JobVacancy): boolean =>
+  job.isOpen && isRecruitmentOpen();
+
 export const jobVacancies: JobVacancy[] = [
   {
     slug: "marketing-client-support-intern",
     title: "Marketing & Client Support Intern (NYSC)",
     employmentType: "NYSC (Full-Time)",
     location: "Yaba, Lagos",
-    closingDate: "Applications reviewed on a rolling basis",
+    closingDate: "Applications close 7th August 2026",
     summary:
       "Support our marketing activities, manage client enquiries, and help create content while gaining hands-on experience in real estate.",
     jobSummary:
@@ -126,7 +134,7 @@ export const jobVacancies: JobVacancy[] = [
     ],
     careerGrowth:
       "Strong performers are considered for full-time roles at the end of their NYSC service year, with a clear path into marketing or client-facing positions.",
-    applicationDeadline: "Open until filled.",
+    applicationDeadline: "7th August 2026",
     googleFormUrl: "https://forms.gle/otvtn5WWeEz5jiB48",
     isOpen: true,
   },
@@ -135,7 +143,7 @@ export const jobVacancies: JobVacancy[] = [
     title: "Business Growth Manager",
     employmentType: "Full-Time",
     location: "Yaba, Lagos",
-    closingDate: "Applications reviewed on a rolling basis",
+    closingDate: "Applications close 7th August 2026",
     summary:
       "Lead growth initiatives across marketing, partnerships, and customer experience to strengthen 1502 Properties' market presence.",
     jobSummary:
@@ -220,7 +228,7 @@ export const jobVacancies: JobVacancy[] = [
     ],
     careerGrowth:
       "Clear career progression based on performance, with the opportunity to shape and grow the company's business development function as 1502 Properties scales.",
-    applicationDeadline: "Open until filled.",
+    applicationDeadline: "7th August 2026",
     googleFormUrl: "https://forms.gle/7pFs4W2FkPByou3f7",
     isOpen: true,
   },
