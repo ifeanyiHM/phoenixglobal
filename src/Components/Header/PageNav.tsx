@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState, type CSSProperties } from "react";
 import useProperty from "../../context/useProperty";
 import useIsDesktop from "../../Hooks/Useisdesktop";
+import { useLocation } from "react-router-dom";
 
 interface NavProps {
   children: ReactNode;
@@ -8,8 +9,9 @@ interface NavProps {
 
 function PageNav({ children }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
-  const { isHeader } = useProperty();
+  const { menu } = useProperty();
   const isDesktop = useIsDesktop(992);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,14 +22,28 @@ function PageNav({ children }: NavProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const overlayPages = [
+    "/",
+    "/about",
+    "/contact",
+    "/ourservices",
+    "/careers",
+    "/blogs",
+    "/ukproperties",
+  ];
+
+  const isOverlayNav =
+    overlayPages.includes(location.pathname) ||
+    location.pathname.startsWith("/service/");
+
   // Original logic keeps its (slightly counter-intuitive) meaning:
   // isHeader === false is what puts the nav in "transparent overlay" mode
   // — used on pages with a hero image sitting behind the nav.
-  const isOverlayNav = !isHeader;
-  const isTransparent = isDesktop && isOverlayNav && !scrolled;
+  // const isOverlayNav = !isHeader;
+  const isTransparent = isOverlayNav && !scrolled && (isDesktop || !menu);
 
   const navStyle: CSSProperties = {
-    position: isDesktop && isOverlayNav ? "fixed" : "sticky",
+    position: isOverlayNav ? "fixed" : "sticky",
     top: 0,
     left: 0,
     width: "100%",
@@ -46,9 +62,11 @@ function PageNav({ children }: NavProps) {
   };
 
   return (
-    <nav style={navStyle} aria-label="Navigation List">
-      {children}
-    </nav>
+    <>
+      <nav style={navStyle} aria-label="Navigation List">
+        {children}
+      </nav>
+    </>
   );
 }
 

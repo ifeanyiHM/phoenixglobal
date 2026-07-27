@@ -82,6 +82,7 @@ const styles: Record<string, CSSProperties> = {
   banner: {
     position: "relative",
     minHeight: "clamp(16rem, 32vw, 22rem)",
+    paddingTop: "5rem",
     display: "flex",
     alignItems: "flex-end",
     backgroundImage:

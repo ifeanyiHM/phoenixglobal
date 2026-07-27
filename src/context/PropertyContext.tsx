@@ -72,12 +72,12 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   const [loadingProperties, setLoadingProperties] = useState<boolean>(false);
   const [selectedType, setSelectedType] = useBrowserStorageState<string>(
     "",
-    "selectedType"
+    "selectedType",
   );
 
   const [propertyType, setPropertyType] = useBrowserStorageState<string>(
     "sale",
-    "propertyType"
+    "propertyType",
   );
   const [isPageHeaderShown, setIsPageHeaderShown] =
     useBrowserStorageState<boolean>(false, "isPageHeaderShown");
@@ -110,11 +110,11 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   }, []);
 
   const topProperty = propertyData.filter((property) =>
-    [62, 10, 64].includes(+property.id)
+    [62, 10, 64].includes(+property.id),
   );
 
   const getRandomItem = (
-    data: propertySummaryProps[]
+    data: propertySummaryProps[],
   ): propertySummaryProps[] => {
     const isVideo = (src: string) => /\.(mp4|mov|webm|avi|mkv)$/i.test(src);
 
@@ -124,7 +124,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
 
     const selected = types.map((type) => {
       const sameTypeItems = data.filter(
-        (item) => item.type === type && !isVideo(item.src[0])
+        (item) => item.type === type && !isVideo(item.src[0]),
       );
 
       if (sameTypeItems.length === 0) return null;
@@ -133,7 +133,7 @@ function PropertyProvider({ children }: PropertyProviderProps) {
 
     // ✅ Type guard to remove null values completely
     return selected.filter(
-      (item): item is propertySummaryProps => item !== null
+      (item): item is propertySummaryProps => item !== null,
     );
   };
 
@@ -150,14 +150,14 @@ function PropertyProvider({ children }: PropertyProviderProps) {
   }, []);
 
   const selectedProperty = propertyData.filter(
-    (data) => data.type === propertyType
+    (data) => data.type === propertyType,
   );
   if (!selectedProperty) return;
 
   const searchedLocations = selectedProperty.filter((item) =>
     `${item.title} ${item.location} ${item.code}`
       .toLowerCase()
-      .includes(query.toLowerCase())
+      .includes(query.toLowerCase()),
   );
   return (
     <PropertyContext.Provider

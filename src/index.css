@@ -334,7 +334,7 @@
 }
 @media (max-width: 480px) {
   .new-header {
-    height: 70vh;
+    height: 100vh;
   }
   .new-header__content {
     margin: 0 1.5rem;

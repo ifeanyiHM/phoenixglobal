@@ -10,7 +10,7 @@ const styles: Record<string, CSSProperties> = {
   // ---- Banner (matches the rest of the site) ----
   banner: {
     position: "relative",
-    minHeight: "clamp(16rem, 30vw, 20rem)",
+    minHeight: "clamp(20rem, 30vw, 25rem)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",

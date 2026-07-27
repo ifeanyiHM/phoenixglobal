@@ -14,7 +14,7 @@ import { FaSearch } from "react-icons/fa";
 const styles: Record<string, CSSProperties> = {
   banner: {
     position: "relative",
-    minHeight: "clamp(14rem, 26vw, 18rem)",
+    minHeight: "clamp(20rem, 30vw, 25rem)",
     display: "flex",
     alignItems: "center",
     backgroundImage:

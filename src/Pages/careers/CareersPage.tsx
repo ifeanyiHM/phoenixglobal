@@ -100,6 +100,7 @@ const styles: Record<string, CSSProperties> = {
   hero: {
     position: "relative",
     minHeight: "clamp(18rem, 34vw, 24rem)",
+    paddingTop: "5rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
