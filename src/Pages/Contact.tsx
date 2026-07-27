@@ -75,7 +75,7 @@ const whatsappUrl = `https://wa.me/${CONTACT.phoneTel.replace("+", "")}`;
 const styles: Record<string, CSSProperties> = {
   page: {
     color: "var(--primary-text-color)",
-    backgroundColor: "var(--secondary-background-color)",
+    backgroundColor: "#f6f6f6",
   },
 
   // ---- Banner ----

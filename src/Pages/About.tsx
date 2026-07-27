@@ -356,7 +356,7 @@ const styles: Record<string, CSSProperties> = {
 
   // ---- CTA ----
   ctaSection: {
-    backgroundColor: "var(--secondary-background-color)",
+    backgroundColor: "#f6f6f6",
     padding: "clamp(3rem, 7vw, 4.5rem) 1.5rem",
     textAlign: "center",
   },

@@ -213,9 +213,12 @@ function NavList() {
 
     // View Properties dropdown
     viewPropWrapper: { position: "relative" },
-    propertyPanel: {
+    propertyPanelWrapper: {
       position: "absolute",
-      top: "calc(100% + 0.75rem)",
+      top: "calc(100% + 0rem)",
+    },
+    propertyPanel: {
+      marginTop: "0.75rem",
       left: 0,
       minWidth: 240,
       backgroundColor: "var(--light-color)",
@@ -244,9 +247,12 @@ function NavList() {
       textDecoration: "none",
       cursor: "pointer",
     },
-    requestPanel: {
+    requestPanelWrapper: {
       position: "absolute",
-      top: "calc(100% + 0.75rem)",
+      top: "calc(100% + 0rem)",
+    },
+    requestPanel: {
+      marginTop: "0.75rem",
       left: isDesktop ? "auto" : 0,
       right: isDesktop ? 0 : "auto",
       minWidth: 200,
@@ -289,65 +295,67 @@ function NavList() {
         </NavItemLink>
 
         {isDesktop && showPropertyMenu && (
-          <div style={styles.propertyPanel}>
-            {normalizedPropertyDataCount.map((type, index) => (
-              <div key={index}>
-                <PanelRow
-                  onClick={() => {
-                    if (index === 0) {
-                      setShowSaleProp((prev) => !prev);
-                      setShowRentProp(false);
-                    } else if (index === 1) {
-                      setShowRentProp((prev) => !prev);
-                      setShowSaleProp(false);
-                    } else {
-                      handleServicePage(type || "");
-                      setSelectedType("");
-                      setShowSaleProp(false);
-                      setShowRentProp(false);
-                    }
-                  }}
-                >
-                  {type && capitalizeTitle(type)}
-                  {index === 0 &&
-                    (showSaleProp ? <FaAngleUp /> : <FaAngleDown />)}
-                  {index === 1 &&
-                    (showRentProp ? <FaAngleUp /> : <FaAngleDown />)}
-                </PanelRow>
+          <div style={styles.propertyPanelWrapper}>
+            <div style={styles.propertyPanel}>
+              {normalizedPropertyDataCount.map((type, index) => (
+                <div key={index}>
+                  <PanelRow
+                    onClick={() => {
+                      if (index === 0) {
+                        setShowSaleProp((prev) => !prev);
+                        setShowRentProp(false);
+                      } else if (index === 1) {
+                        setShowRentProp((prev) => !prev);
+                        setShowSaleProp(false);
+                      } else {
+                        handleServicePage(type || "");
+                        setSelectedType("");
+                        setShowSaleProp(false);
+                        setShowRentProp(false);
+                      }
+                    }}
+                  >
+                    {type && capitalizeTitle(type)}
+                    {index === 0 &&
+                      (showSaleProp ? <FaAngleUp /> : <FaAngleDown />)}
+                    {index === 1 &&
+                      (showRentProp ? <FaAngleUp /> : <FaAngleDown />)}
+                  </PanelRow>
 
-                {index === 0 && showSaleProp && (
-                  <div style={styles.subPanel}>
-                    {saleSubTypes.map((item) => (
-                      <SubPanelRow
-                        key={item.code}
-                        onClick={() => {
-                          handleServicePage("sale");
-                          setSelectedType(item.code);
-                        }}
-                      >
-                        {item.label}
-                      </SubPanelRow>
-                    ))}
-                  </div>
-                )}
+                  {index === 0 && showSaleProp && (
+                    <div style={styles.subPanel}>
+                      {saleSubTypes.map((item) => (
+                        <SubPanelRow
+                          key={item.code}
+                          onClick={() => {
+                            handleServicePage("sale");
+                            setSelectedType(item.code);
+                          }}
+                        >
+                          {item.label}
+                        </SubPanelRow>
+                      ))}
+                    </div>
+                  )}
 
-                {index === 1 && showRentProp && (
-                  <div style={styles.subPanel}>
-                    {rentSubTypes.map((item) => (
-                      <SubPanelRow
-                        key={item.code}
-                        onClick={() => {
-                          handleServicePage("rent");
-                          setSelectedType(item.code);
-                        }}
-                      >
-                        {item.label}
-                      </SubPanelRow>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                  {index === 1 && showRentProp && (
+                    <div style={styles.subPanel}>
+                      {rentSubTypes.map((item) => (
+                        <SubPanelRow
+                          key={item.code}
+                          onClick={() => {
+                            handleServicePage("rent");
+                            setSelectedType(item.code);
+                          }}
+                        >
+                          {item.label}
+                        </SubPanelRow>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </li>
@@ -399,21 +407,25 @@ function NavList() {
         )}
 
         {isActive && (
-          <div style={styles.requestPanel}>
-            <RequestPanelLink
-              to="ukproperties"
-              onClick={() => handleSelect("Request Properties", "ukproperties")}
-            >
-              Request Properties
-            </RequestPanelLink>
-            <RequestPanelLink
-              to="view-property-request"
-              onClick={() =>
-                handleSelect("View Request", "view-property-request")
-              }
-            >
-              View Request
-            </RequestPanelLink>
+          <div style={styles.requestPanelWrapper}>
+            <div style={styles.requestPanel}>
+              <RequestPanelLink
+                to="ukproperties"
+                onClick={() =>
+                  handleSelect("Request Properties", "ukproperties")
+                }
+              >
+                Request Properties
+              </RequestPanelLink>
+              <RequestPanelLink
+                to="view-property-request"
+                onClick={() =>
+                  handleSelect("View Request", "view-property-request")
+                }
+              >
+                View Request
+              </RequestPanelLink>
+            </div>
           </div>
         )}
       </li>
