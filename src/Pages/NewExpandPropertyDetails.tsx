@@ -59,7 +59,7 @@ function NewExpandPropertyDetails() {
 
   function capitalizeTitle(title: string): string {
     return title.replace(/\b\w/g, (char, index) =>
-      title[index - 1] === "'" ? char.toLowerCase() : char.toUpperCase()
+      title[index - 1] === "'" ? char.toLowerCase() : char.toUpperCase(),
     );
   }
 
@@ -70,10 +70,10 @@ function NewExpandPropertyDetails() {
       }
 
       return function () {
-        document.title = "Phoenix Global Properties";
+        document.title = "1502 Properties";
       };
     },
-    [summaryDetails]
+    [summaryDetails],
   );
 
   const width = useWindowWidth();
@@ -97,7 +97,48 @@ function NewExpandPropertyDetails() {
 
   if (!summaryDetails) {
     return (
-      <div>Click a property in the service page to get a full detail.</div>
+      <div
+        style={{
+          minHeight: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "2rem",
+          gap: "1rem",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "var(--font-headings)",
+            fontSize: "1.4rem",
+            fontWeight: 600,
+            margin: 0,
+          }}
+        >
+          No property selected
+        </h2>
+        <p style={{ color: "#6b6f6f", fontSize: "0.9rem", maxWidth: 340 }}>
+          Click a property from the listings page to see its full details here.
+        </p>
+        <Link
+          to="/service/sale"
+          style={{
+            display: "inline-block",
+            marginTop: "0.5rem",
+            padding: "0.75rem 1.75rem",
+            fontSize: "0.85rem",
+            fontWeight: 600,
+            color: "#fff",
+            backgroundColor: "var(--dark-background-color)",
+            borderRadius: 100,
+            textDecoration: "none",
+          }}
+        >
+          Browse Properties
+        </Link>
+      </div>
     );
   }
 
@@ -176,7 +217,6 @@ function NewExpandPropertyDetails() {
                       loop
                       playsInline
                       title={summaryDetails.title}
-                      // loading="lazy"
                       width="100%"
                       height="100%"
                       style={{ objectFit: "cover" }}
@@ -211,7 +251,6 @@ function NewExpandPropertyDetails() {
                     loop
                     playsInline
                     title={summaryDetails.title}
-                    // loading="lazy"
                     width="100%"
                     height="100%"
                     style={{ objectFit: "cover" }}
@@ -342,18 +381,9 @@ function NewExpandPropertyDetails() {
                 }}
               >
                 {" "}
-                <h3>Dedicated Adivisory</h3>{" "}
+                <h3>Dedicated Advisory</h3>{" "}
                 <span>({summaryDetails?.code?.toUpperCase()})</span>
               </div>
-
-              {/* <img
-                src="/whatsappqrcode.png"
-                alt="whatsapp qr code"
-                title="scan the qr code"
-                loading="lazy"
-                width="auto"
-                height="auto"
-              /> */}
 
               <div className="agent-profile">
                 <FaRegCircleUser color="#2b2d2d" className="agent-pic mobile" />
@@ -372,12 +402,11 @@ function NewExpandPropertyDetails() {
                   to={`https://wa.me/2348096068042?text=${encodeURIComponent(
                     `Hello! I'm interested in the property titled "${
                       summaryDetails.title
-                    }" with code (${summaryDetails?.code?.toUpperCase()}). Could you please provide more details?`
+                    }" with code (${summaryDetails?.code?.toUpperCase()}). Could you please provide more details?`,
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* <BsWhatsapp /> */}
                   <span>
                     {" "}
                     {width < 768 ? "Whatsapp" : "Schedule a Consultation"}
@@ -389,14 +418,14 @@ function NewExpandPropertyDetails() {
             {summaryDetails?.suitability &&
               summaryDetails?.suitability?.length > 0 && (
                 <div className="suit">
-                  <p>High-Yeild Development Potential:</p>
+                  <p>High-Yield Development Potential:</p>
                   <ul>
                     {summaryDetails.suitability?.map(
                       (li: string, index: number) => (
                         <li key={index}>
                           <BsStars className="icon" /> <span>{li}</span>
                         </li>
-                      )
+                      ),
                     )}
                   </ul>
                 </div>
