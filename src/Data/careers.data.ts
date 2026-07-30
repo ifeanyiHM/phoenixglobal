@@ -47,7 +47,7 @@ export interface JobVacancy {
   isOpen: boolean;
 }
 
-export const recruitmentDeadline = new Date("2026-08-07T23:59:59");
+export const recruitmentDeadline = new Date("2026-08-12T23:59:59");
 
 export const isRecruitmentOpen = (): boolean =>
   new Date() <= recruitmentDeadline;
@@ -61,7 +61,7 @@ export const jobVacancies: JobVacancy[] = [
     title: "Marketing & Client Support Intern (NYSC)",
     employmentType: "NYSC (Full-Time)",
     location: "Yaba, Lagos",
-    closingDate: "Applications close 7th August 2026",
+    closingDate: "Applications close 12th August 2026",
     summary:
       "Support our marketing activities, manage client enquiries, and help create content while gaining hands-on experience in real estate.",
     jobSummary:
@@ -134,7 +134,7 @@ export const jobVacancies: JobVacancy[] = [
     ],
     careerGrowth:
       "Strong performers are considered for full-time roles at the end of their NYSC service year, with a clear path into marketing or client-facing positions.",
-    applicationDeadline: "7th August 2026",
+    applicationDeadline: "12th August 2026",
     googleFormUrl: "https://forms.gle/otvtn5WWeEz5jiB48",
     isOpen: true,
   },
@@ -143,7 +143,7 @@ export const jobVacancies: JobVacancy[] = [
     title: "Business Growth Manager",
     employmentType: "Full-Time",
     location: "Yaba, Lagos",
-    closingDate: "Applications close 7th August 2026",
+    closingDate: "Applications close 12th August 2026",
     summary:
       "Lead growth initiatives across marketing, partnerships, and customer experience to strengthen 1502 Properties' market presence.",
     jobSummary:
@@ -228,8 +228,127 @@ export const jobVacancies: JobVacancy[] = [
     ],
     careerGrowth:
       "Clear career progression based on performance, with the opportunity to shape and grow the company's business development function as 1502 Properties scales.",
-    applicationDeadline: "7th August 2026",
+    applicationDeadline: "12th August 2026",
     googleFormUrl: "https://forms.gle/7pFs4W2FkPByou3f7",
+    isOpen: true,
+  },
+  {
+    slug: "digital-marketing-content-strategist",
+    title: "Digital Marketing & Content Strategist",
+    employmentType: "Full-Time",
+    location: "Yaba, Lagos (Office-Based)",
+    closingDate: "Applications close 12th August 2026",
+
+    summary:
+      "Plan, execute and optimize digital marketing campaigns while developing compelling content that generates qualified leads and strengthens the company's brand.",
+
+    jobSummary:
+      "The Digital Marketing & Content Strategist will be responsible for planning, executing, and optimizing the company's digital marketing activities while developing compelling content that generates qualified leads and strengthens the brand. Working closely with the Managing Partner and supervising the Marketing & Client Support Intern, the successful candidate will build marketing systems that capture, nurture, and convert prospects into inspection bookings and successful property transactions. This role combines omnichannel marketing, content strategy, CRM management, marketing automation, and performance analysis.",
+
+    responsibilities: [
+      {
+        heading: "Digital Marketing",
+        items: [
+          "Plan, execute, and optimize Meta, Google, and other advertising campaigns.",
+          "Develop lead generation strategies across digital channels.",
+          "Improve website traffic and conversion rates.",
+          "Implement email and WhatsApp marketing campaigns.",
+          "Monitor campaign performance and recommend improvements.",
+        ],
+      },
+      {
+        heading: "CRM & Marketing Automation",
+        items: [
+          "Manage and maintain the company's CRM platform.",
+          "Ensure enquiries from the website, Meta Lead Forms, WhatsApp, and other channels are properly captured.",
+          "Build simple automated workflows for lead nurturing.",
+          "Segment leads based on buyer profiles and buying intent.",
+          "Ensure no qualified lead is lost through poor follow-up.",
+        ],
+      },
+      {
+        heading: "Content Strategy",
+        items: [
+          "Develop the monthly content calendar.",
+          "Create campaign concepts for property marketing.",
+          "Use AI tools to generate first drafts and marketing ideas.",
+          "Review and approve content before publication.",
+          "Direct property shoots and supervise content production.",
+          "Provide guidance to the Marketing & Client Support Intern.",
+        ],
+      },
+      {
+        heading: "Brand Development",
+        items: [
+          "Ensure consistency across all digital platforms.",
+          "Identify opportunities to grow brand awareness.",
+          "Support partnership and promotional initiatives.",
+          "Strengthen the company's online reputation.",
+        ],
+      },
+      {
+        heading: "Analytics & Reporting",
+        items: [
+          "Prepare weekly and monthly reports covering leads generated.",
+          "Track qualified leads.",
+          "Monitor website traffic.",
+          "Evaluate campaign performance.",
+          "Track cost per lead.",
+          "Monitor inspection bookings.",
+          "Measure social media growth.",
+          "Provide recommendations for continuous improvement.",
+        ],
+      },
+    ],
+
+    qualifications: [
+      "Minimum of 2 years' experience in Digital Marketing.",
+      "Experience managing Meta Ads, Google Ads, and other digital marketing channels.",
+      "Experience using CRM platforms such as HubSpot, Zoho, Salesforce, or similar.",
+      "Good understanding of digital marketing analytics.",
+    ],
+
+    skills: [
+      "Meta Ads management.",
+      "Google Ads management.",
+      "CRM management (HubSpot, Zoho, Salesforce, or similar).",
+      "Marketing automation.",
+      "Digital marketing analytics.",
+      "Strong copywriting and communication skills.",
+      "Basic video editing and graphic design skills.",
+      "Excellent organizational and problem-solving abilities.",
+      "AI-assisted content creation.",
+    ],
+
+    addedAdvantage: [
+      "Experience using Zapier or Make.",
+      "Strategic and commercially minded.",
+      "Creative and innovative.",
+      "Data-driven and analytical.",
+      "Highly organized.",
+      "Proactive and self-motivated.",
+      "Passionate about continuous learning.",
+      "Comfortable using AI to improve productivity.",
+      "Applicants residing in Yaba or surrounding areas have an added advantage.",
+    ],
+
+    salaryRange: "Competitive, commensurate with experience and performance.",
+
+    benefits: [
+      "Professional growth in a fast-growing real estate company.",
+      "Opportunity to work closely with senior leadership.",
+      "Hands-on experience building scalable marketing systems.",
+      "Collaborative and innovation-driven work environment.",
+    ],
+
+    careerGrowth:
+      "Successful candidates will have the opportunity to lead the company's digital marketing strategy, marketing automation systems, brand growth initiatives, and customer acquisition efforts as the business expands.",
+
+    applicationDeadline: "12th August 2026",
+
+    googleFormUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSdp4Lr5D_S7bcxVKEx2jVuwSBfdoIwa9GFpy1EnkjcIT5s54Q/viewform?usp=publish-editor",
+
     isOpen: true,
   },
 ];
